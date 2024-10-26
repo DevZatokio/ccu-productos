@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/MADE-Tommy-Soft-Bold.ttf",
+      "sha1": "a72419c80148bb58bc01010b6600872ae20779f5"
+    },
+    {
+      "path": "src/assets/fonts/MADE-Tommy-Soft-Regular.ttf",
+      "sha1": "4f0deff6d647b6d6910216273957cf95a8c684a5"
+    }
+  ]
+}
