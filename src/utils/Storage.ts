@@ -4,6 +4,31 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
  * @returns {Object}
  */
 export default {
+  async getToken() {
+    try {
+      const jsonValue = await AsyncStorage.getItem('token');
+      return jsonValue != null ? JSON.parse(jsonValue) : null;
+    } catch (e) {
+      console.log(e);
+      // error reading value
+    }
+  },
+  async setToken(value: object) {
+    try {
+      const jsonValue = JSON.stringify(value);
+      await AsyncStorage.setItem('token', jsonValue);
+    } catch (e) {
+      console.log(e);
+      // saving error
+    }
+  },
+  async removeToken() {
+    try {
+      await AsyncStorage.removeItem('token');
+    } catch (error) {
+      // error
+    }
+  },
   /**
    * User
    */

@@ -22,33 +22,33 @@ import Dashboard from './src/pages/Dashboard/Dashboard';
 // init initialState
 const initialState = {
   type: null,
-  user: null,
+  token: null,
   isLoading: true,
 };
 // reducer initialState
 const reducer = (prev: any, action: any) => {
   switch (action.type) {
-    case 'RESTORE_USER':
+    case 'RESTORE_TOKEN':
       return {
         ...prev,
-        user: action.user,
+        token: action.token,
         isLoading: false,
       };
     case 'SIGN_OUT':
       return {
         ...prev,
-        user: null,
+        token: null,
         isLoading: false,
       };
     case 'SIGN_IN':
       return {
         ...prev,
-        user: action.user,
+        token: action.token,
         isLoading: false,
       };
     default:
       return {
-        user: action.user,
+        token: action.token,
         isLoading: true,
       };
   }
@@ -83,14 +83,14 @@ function App() {
   }, []);
 
   const bootstrapAsync = async () => {
-    dispatch({type: null, user: null, isLoading: true});
+    dispatch({type: null, token: null, isLoading: true});
     try {
-      const user = await Storage.getUser();
-
-      if (user != null) {
-        dispatch({type: 'RESTORE_USER', user: user, isLoading: false});
+      const token = await Storage.getToken();
+      console.log('bootstrapAsync token: ', token);
+      if (token != null) {
+        dispatch({type: 'RESTORE_TOKEN', token: token, isLoading: false});
       } else {
-        dispatch({type: 'RESTORE_USER', user: null, isLoading: false});
+        dispatch({type: 'RESTORE_TOKEN', token: null, isLoading: false});
       }
     } catch (e: any) {
       console.log('================');
@@ -106,27 +106,26 @@ function App() {
 
   const authContext = useMemo(
     () => ({
-      signIn: async (data: any) => {
+      signIn: async (token: any) => {
         // subscribe general users users:_id
         try {
-          console.log('users' + data._id);
-          await Storage.setUser(data);
-          dispatch({type: 'SIGN_IN', user: data, isLoading: false});
+          await Storage.setToken(token);
+          dispatch({type: 'SIGN_IN', token: token, isLoading: false});
         } catch (error) {
           console.log(error);
         }
       },
       signOut: async () => {
         // unsubscribe general users users:_id
-        const user = await Storage.getUser();
+        const token = await Storage.getToken();
 
-        if (user != null) {
+        if (token != null) {
           await Storage.clear();
-          dispatch({type: 'SIGN_OUT', user: null, isLoading: false});
+          dispatch({type: 'SIGN_OUT', token: null, isLoading: false});
         }
       },
       signUp: async (data: any) => {
-        dispatch({type: 'SIGN_UP', user: data, isLoading: false});
+        dispatch({type: 'SIGN_UP', token: data, isLoading: false});
       },
     }),
     [],
@@ -139,7 +138,7 @@ function App() {
           <NavigationContainer ref={navigationRef}>
             {status.isLoading ? (
               <LoadingInit />
-            ) : status.user ? (
+            ) : status.token ? (
               <DashboardApp />
             ) : (
               <RootApp />

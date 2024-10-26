@@ -4,8 +4,8 @@ import {ColorsTheme} from '../../configs';
 import {ImageCCU} from '../../images';
 
 const LoadingInit = ({
-  backgroundColor = ColorsTheme.ccu_dark_green,
-  color = ColorsTheme.white,
+  backgroundColor = ColorsTheme.white,
+  color = ColorsTheme.ccu_dark_green,
 }: {
   color?: string;
   backgroundColor?: string;
@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
   },
   image: {
     height: 200,
+    width: '90%',
   },
   activity: {
     marginTop: 32,

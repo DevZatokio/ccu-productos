@@ -30,6 +30,7 @@ interface CustomInput {
   lowercase?: boolean;
   keyboardType?: KeyboardTypeOptions;
   textAlignVertical?: 'auto' | 'center' | 'top' | 'bottom' | undefined;
+  placeholderTextColor?: string
 }
 
 const CustomInput: React.FC<CustomInput> = ({
@@ -44,12 +45,13 @@ const CustomInput: React.FC<CustomInput> = ({
   lowercase = false,
   maxLength,
   style,
-  errorColor = ColorsTheme.danger,
+  errorColor = ColorsTheme.red,
   textColor = ColorsTheme.dark,
   backgroundColor = ColorsTheme.white,
   secureTextEntry,
   keyboardType,
   textAlignVertical,
+  placeholderTextColor = ColorsTheme.gray,
 }) => {
   return (
     <Controller
@@ -61,7 +63,7 @@ const CustomInput: React.FC<CustomInput> = ({
           <View
             style={[
               {flex: 0},
-              {borderColor: error ? ColorsTheme.danger : ColorsTheme.light},
+              {borderColor: error ? ColorsTheme.red : ColorsTheme.light},
             ]}>
             {title && (
               <CustomText style={[styles?.text, {color: textColor}]}>
@@ -91,7 +93,7 @@ const CustomInput: React.FC<CustomInput> = ({
                 editable={editable}
                 secureTextEntry={secureTextEntry}
                 textAlignVertical={textAlignVertical}
-                placeholderTextColor={ColorsTheme.light_secondary}
+                placeholderTextColor={placeholderTextColor}
               />
             </View>
           </View>

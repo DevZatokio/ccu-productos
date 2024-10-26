@@ -52,28 +52,28 @@ const styles = StyleSheet.create({
     color: ColorsTheme.dark,
   },
   darkLight: {
-    color: ColorsTheme.dark_light,
+    color: ColorsTheme.transparentBlack,
   },
   white: {
     color: ColorsTheme.white,
   },
   primary: {
-    color: ColorsTheme.primary,
+    color: ColorsTheme.ccu_dark_green,
   },
   secondary: {
-    color: ColorsTheme.light_secondary,
+    color: ColorsTheme.ccu_light_green,
   },
   danger: {
-    color: ColorsTheme.danger,
+    color: ColorsTheme.red,
   },
   light: {
-    color: ColorsTheme.light,
+    color: ColorsTheme.white,
   },
   fa: {
-    color: ColorsTheme.light_fa,
+    color: ColorsTheme.transparentBlack,
   },
   blue: {
-    color: ColorsTheme.facebook,
+    color: ColorsTheme.blue,
   },
 });
 
