@@ -36,7 +36,6 @@ const Login = () => {
   }, []);
 
   const handleLogin = async (data: {username: string; password: string}) => {
-    console.log('handleLogin');
     try {
       const response = await Axios.post('auth/login', {
         username: data.username,

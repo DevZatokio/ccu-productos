@@ -18,7 +18,7 @@ import {AuthContext} from './src/contexts/AuthContext';
 import Login from './src/pages/Login/Login';
 import LoadingInit from './src/pages/Loading/LoadingInit';
 import Dashboard from './src/pages/Dashboard/Dashboard';
-
+import ProductDetail from './src/pages/Dashboard/ProductDetail';
 // init initialState
 const initialState = {
   type: null,
@@ -170,6 +170,11 @@ const DashboardApp = () => {
         name="Dashboard"
         component={Dashboard}
         options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="ProductDetail"
+        component={ProductDetail}
+        options={{headerShown: true, title: 'Detalle Producto'}}
       />
     </Stack.Navigator>
   );
