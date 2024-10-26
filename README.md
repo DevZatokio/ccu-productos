@@ -1,3 +1,5 @@
+![Presentation](https://github.com/DevZatokio/ccu-productos/blob/main/src/images/ccu-products.png)
+
 # Description Project
 
 Desarrollarás una aplicación móvil sencilla que permita a un usuario autenticarse, ver una lista de productos y acceder a los detalles de un producto. Los datos de los productos se obtendrán de una API externa (https://fakestoreapi.com/). La aplicación debe gestionar el estado usando el manejador de estado de tu elección
