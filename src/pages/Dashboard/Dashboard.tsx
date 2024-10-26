@@ -29,7 +29,6 @@ const Dashboard = () => {
       const response = await Axios.get('products');
       if (response.status === 200) {
         setIsLoading(false);
-        console.log(response.data);
         setProducts(response.data);
       }
     } catch (error) {
@@ -39,19 +38,17 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    console.log('Dashboard');
     getProducts();
   }, []);
 
-
-  if(isLoading){
+  if (isLoading) {
     return <LoadingView />;
   }
   const ProductDetail = (id: number) => {
     navigation.navigate('ProductDetail', {id});
   };
 
-  const renderProduct = ({item} : {item: Product}) => {
+  const renderProduct = ({item}: {item: Product}) => {
     return (
       <TouchableOpacity
         onPress={() => ProductDetail(item.id)}
@@ -73,8 +70,7 @@ const Dashboard = () => {
         </View>
       </TouchableOpacity>
     );
-  }
- 
+  };
 
   return (
     <SafeAreaView style={styles.safe}>
@@ -93,7 +89,11 @@ const Dashboard = () => {
           </CustomText>
         </TouchableOpacity>
       </View>
-      <FlatList data={products} renderItem={renderProduct} style={styles.list} />
+      <FlatList
+        data={products}
+        renderItem={renderProduct}
+        style={styles.list}
+      />
     </SafeAreaView>
   );
 };
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: ColorsTheme.ccu_dark_green,
   },
-  box_image:{
+  box_image: {
     justifyContent: 'space-between',
     alignItems: 'center',
   },
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
   box_description: {
     flex: 1,
     marginLeft: 16,
-  }
+  },
 });
 
 export default Dashboard;

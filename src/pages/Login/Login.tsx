@@ -31,10 +31,6 @@ const Login = () => {
     },
   });
 
-  useEffect(() => {
-    console.log('Login');
-  }, []);
-
   const handleLogin = async (data: {username: string; password: string}) => {
     try {
       const response = await Axios.post('auth/login', {
@@ -43,7 +39,6 @@ const Login = () => {
       });
 
       if(response.status === 200) {
-        console.log(response.data);
         auth.signIn(response.data.token);
       }else{
         Alert.alert('Error', 'Username or password is incorrect');
