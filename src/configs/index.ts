@@ -24,7 +24,15 @@ const ColorsTheme = {
 
   ccu_dark_green: '#0F4E35',
   ccu_light_green: '#69B03A',
-}
+};
+
+export const Sizes = {
+  xs: 8,
+  sm: 12,
+  md: 16,
+  lg: 20,
+  xl: 24,
+};
 
 const FontFamily =
   Platform.OS === 'ios' ? 'MADE Tommy Soft' : 'MADE Tommy Soft Regular';
