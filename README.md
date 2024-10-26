@@ -31,11 +31,9 @@ Al seleccionar un producto de la lista, se debe navegar a una pantalla de detall
 - Descripción completa.
 - Precio.
 
-# Getting Started
+## Getting Started
 
-## Overview
-
-## Step 0: Set Up Your Project
+### Step 0: Set Up Your Project
 
 ```bash
 # using npm
@@ -45,7 +43,7 @@ npm install
 yarn install
 ```
 
-## Step 1: Start the Metro Server
+### Step 1: Start the Metro Server
 
 First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
@@ -59,11 +57,11 @@ npm start
 yarn start
 ```
 
-## Step 2: Start your Application
+### Step 2: Start your Application
 
 Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
 
-### For Android
+#### For Android
 
 ```bash
 # using npm
@@ -73,7 +71,7 @@ npm run android
 yarn android
 ```
 
-### For iOS
+#### For iOS
 
 ```bash
 # using npm
@@ -83,9 +81,9 @@ npm run ios
 yarn ios
 ```
 
-## Step 3: Navigate to the App
+### Step 3: Navigate to the App
 
-## CocoaPods
+#### For CocoaPods
 
 ```bash
 pod install --project-directory=ios
